@@ -1,0 +1,135 @@
+/* Estilos generales */
+.experiencia-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 40px;
+    
+    
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .experiencia-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+}
+
+.titulo-principal {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Estilos de las tarjetas */
+.card {
+    background: transparent;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 350px;
+    flex: 1;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+/* Ajuste para móviles */
+@media (max-width: 480px) {
+    .card {
+        max-width: 90%;
+        padding: 15px;
+    }
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+/* Ajustes para imágenes en pantallas pequeñas */
+@media (max-width: 480px) {
+    .card img {
+        height: 120px;
+    }
+}
+
+.titulo {
+    font-size: 1.5rem;
+    color: #222;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.empresa {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.periodo {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.tareas {
+    list-style-type: none;
+    padding: 0;
+}
+
+.tareas li {
+    background: #e3e3e3;
+    padding: 8px;
+    margin-bottom: 6px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+/* Ajuste para tareas en móviles */
+@media (max-width: 480px) {
+    .tareas li {
+        font-size: 0.85rem;
+        padding: 6px;
+    }
+}
+
+.tecnologias {
+    display: flex;
+    gap: 10px;
+    font-size: 1.5rem;
+    margin-top: 10px;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    flex-wrap: wrap;
+    color:white;
+}
+
+/* Ajuste para iconos en móviles */
+@media (max-width: 480px) {
+    .tecnologias {
+        font-size: 1.2rem;
+        gap: 8px;
+    }
+}
+
+.tecnologias svg {
+    transition: transform 0.3s ease;
+}
+
+.tecnologias svg:hover {
+    transform: scale(1.2);
+}

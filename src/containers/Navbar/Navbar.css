@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+.custom-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+}
+
+.custom-link {
+    position: relative;
+    color: white !important;
+    font-size: 1.1rem;
+    transition: color 0.3s ease-in-out;
+    font-family: 'Poppins', sans-serif;
+}
+
+.custom-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 50%;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+}
+
+.custom-link:hover {
+    color: #919496 !important;
+}
+
+.custom-link:hover::after {
+    width: 100%;
+}
+
+/* Navbar inicial (transparente) */
+.visible-navbar {
+    background-color: transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Navbar oculto cuando aparece el fijo */
+.hidden-navbar {
+    display: none;
+}
+
+/* Navbar que aparece al hacer scroll */
+.fixed-navbar {
+    position: fixed;
+    top: -70px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Color oscuro con transparencia */
+    transition: top 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.fixed-navbar.show-navbar {
+    top: 0;
+}

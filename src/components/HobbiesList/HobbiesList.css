@@ -1,0 +1,65 @@
+.hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); /* Aumentamos el minmax */
+    gap: 15px;
+    background: black;
+}
+
+.hobby-card {
+    background: black;
+    color: white;
+    padding: 15px;
+    border: 1px solid white;
+    position: relative;
+    overflow: hidden;
+    min-width: 300px; /* Aseguramos un ancho mínimo */
+    min-height: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: transform 0.3s ease-in-out;
+    margin-bottom: 30px;
+}
+
+.hobby-title {
+    font-size: 3rem;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    font-family: "Helvetica Neue LT W05 55 Roman";
+}
+
+.hobby-description {
+    font-size: 1rem;
+    opacity: 0.8;
+    position: absolute;
+    bottom: 5px;
+    left: 10px;
+    z-index: 2;
+    margin-bottom: 0;
+    font-family: "Helvetica Neue LT W05 55 Roman";
+}
+
+.hobby-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.0s ease-in-out;
+    z-index: 1;
+}
+
+.hobby-card:hover::before {
+    opacity: 1;
+}
+
+.hobby-card:hover {
+    transform: scale(1.05);
+}
+
+.hobby-card::before {
+    background-image: var(--bg-image);
+}

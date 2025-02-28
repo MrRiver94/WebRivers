@@ -1,0 +1,33 @@
+.footer {
+    
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.social-icons {
+    margin-bottom: 10px;
+    display: flex; /* Habilita flexbox */
+    justify-content: center; /* Centra los iconos horizontalmente */
+}
+
+.social-icons a {
+    color: white;
+    font-size: 24px;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #007bff;
+}
+
+.contact-info p {
+    margin: 5px 0;
+}

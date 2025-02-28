@@ -1,0 +1,179 @@
+/* Importaciones de fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+:root {
+  --font-antonio: 'Antonio', sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-courier:"Courier, sans-serif"
+}
+/* Contenedor principal */
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: black; 
+  padding-bottom: 2rem;
+  text-align: center;
+  
+}
+
+/* Opcional: Ajustar la opacidad y los puntos de parada */
+/*
+.hero-container {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 20%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
+}
+*/
+
+/* Contenido principal (texto e imagen) */
+.hero-main-content {
+  display: flex;
+  flex-direction: column; /* Columna en móviles por defecto */
+  align-items: center;
+  width: 100%;
+}
+
+/* Contenido textual a la izquierda */
+.hero-content {
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Columna por defecto */
+  align-items: center;
+}
+
+.hero-content-card {
+  width: 100%; /* Asegura que ocupe todo el ancho disponible */
+  max-width: 800px; /* Ajusta este valor según tus necesidades */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+}
+
+
+/* Títulos */
+.hero-title {
+  width: 100%;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  
+}
+
+.highlight {
+  color: #000000;
+}
+
+.role {
+  font-size: 4rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: black;
+  margin-bottom: 50px;
+}
+
+/* Descripción */
+.hero-description {
+  font-size: 1rem;
+  margin-top: 100px;
+  color: black;
+  max-width: 700px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Grupo de botones y redes sociales */
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.btn-primary {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  color: black;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background-color: black;
+}
+
+/* Iconos sociales */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-icons a {
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: white;
+}
+
+
+
+/* Estadísticas debajo de la foto */
+.hero-stats {
+  width: 100%;
+  text-align: center;
+  margin-top: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.2rem;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat span {
+  font-size: 2rem;
+  font-weight: bold;
+  color: black;
+}
+
+/* Responsive */
+@media (min-width: 900px) {
+  .hero-main-content {
+    flex-direction: row; /* Fila en pantallas grandes */
+    justify-content: space-between;
+    align-items: flex-start; /* Alinea los elementos al inicio en fila */
+  }
+
+  .hero-content {
+    align-items: flex-start; /* Alinea el contenido de texto a la izquierda */
+    text-align: left;
+    flex-direction: row; /* Asegura que el contenido de texto esté en columna */
+    
+  }
+ 
+
+
+  .hero-stats {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .stat span {
+    font-size: 3rem;
+  }
+}
