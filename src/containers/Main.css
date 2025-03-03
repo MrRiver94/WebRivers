@@ -1,66 +1,69 @@
 /* Estilos generales para el contenedor Home */
 body {
   background: url('../../assets/img/Intro.jpg') center/cover no-repeat fixed;
+  margin: 0; /* Asegura que no haya márgenes predeterminados */
 }
+
 .home-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background-color: #f0f0f0;
-  }
-  
-  /* Estilos para el título principal */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: rgba(240, 240, 240, 0.8); /* Añadido transparencia para mejor legibilidad sobre la imagen */
+  padding: 20px; /* Añadido padding para mejor espaciado en móviles */
+}
+
+/* Estilos para el título principal */
+.home-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center; /* Asegura que el título esté centrado en todos los dispositivos */
+}
+
+/* Estilos para el contenido principal */
+.home-content {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9); /* Añadido transparencia para mejor legibilidad */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 600px; /* Limita el ancho en pantallas grandes para mejor legibilidad */
+  width: 90%; /* Asegura que el contenido no sea demasiado ancho en móviles */
+  margin: 20px auto; /* Centra el contenido y añade margen */
+}
+
+/* Estilos para párrafos */
+.home-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Media queries para pantallas más pequeñas (móviles) */
+@media (max-width: 768px) {
   .home-title {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #333;
+    font-size: 2rem; /* Reduce el tamaño del título en móviles */
   }
-  
-  /* Estilos para el contenido principal */
+
   .home-content {
-    text-align: center;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px; /* Reduce el padding en móviles */
+    width: 95%; /* Aumenta el ancho en móviles para usar más espacio */
   }
-  
-  /* Estilos para párrafos */
+
   .home-content p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #555;
-  }/* Estilos generales para el contenedor Home */
-.home-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background-color: #f0f0f0;
+    font-size: 1rem; /* Reduce el tamaño de la fuente en móviles */
   }
-  
-  /* Estilos para el título principal */
+}
+
+/* Media queries para pantallas aún más pequeñas (teléfonos) */
+@media (max-width: 480px) {
   .home-title {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #333;
+    font-size: 1.8rem; /* Reduce aún más el tamaño del título en teléfonos */
   }
-  
-  /* Estilos para el contenido principal */
+
   .home-content {
-    text-align: center;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px; /* Reduce aún más el padding en teléfonos */
   }
-  
-  /* Estilos para párrafos */
-  .home-content p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #555;
-  }
+}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-scroll';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './Navbar.css';
@@ -11,72 +12,70 @@ function Navbar() {
         const handleScroll = () => {
             setScrolled(window.scrollY > 100);
         };
+
         window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, []);
 
-    const handleScrollToSection = (e, id) => {
-        e.preventDefault();
-        const section = document.getElementById(id);
-        if (section) {
-            section.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-        setExpanded(false);
-    };
+    useEffect(() => {
+        if (scrolled) setExpanded(false);
+    }, [scrolled]);
 
     return (
         <>
-            {/* Navbar original transparente */}
+            {/* Navbar principal */}
             <nav className={`navbar navbar-expand-lg navbar-dark ${scrolled ? 'hidden-navbar' : 'visible-navbar'}`}>
                 <div className="container">
-                    <a className="navbar-brand custom-title" href="#home" onClick={(e) => handleScrollToSection(e, "home")}>Portfolio</a>
-                    <button
-                        className="navbar-toggler"
-                        type="button"
+                    <Link className="navbar-brand custom-title" to="home" smooth={true} duration={500}>Portfolio</Link>
+                    <button 
+                        className="navbar-toggler" 
+                        type="button" 
                         onClick={() => setExpanded(!expanded)}
-                        aria-controls="navbarNav"
-                        aria-expanded={expanded}
+                        aria-controls="navbarNavMain" 
+                        aria-expanded={expanded} 
                         aria-label="Toggle navigation"
                     >
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div className={`collapse navbar-collapse ${expanded ? 'show' : ''}`} id="navbarNav">
+                    <div className={`collapse navbar-collapse ${expanded ? 'show' : ''}`} id="navbarNavMain">
                         <ul className="navbar-nav ms-auto">
-                            <li className="nav-item"><a className="nav-link custom-link" href="#home" onClick={(e) => handleScrollToSection(e, "home")}>Home</a></li>
-                            <li className="nav-item"><a className="nav-link custom-link" href="#about" onClick={(e) => handleScrollToSection(e, "about")}>About me</a></li>
-                            <li className="nav-item"><a className="nav-link custom-link" href="#education" onClick={(e) => handleScrollToSection(e, "education")}>My Education</a></li>
-                            <li className="nav-item"><a className="nav-link custom-link" href="#techskills" onClick={(e) => handleScrollToSection(e, "techskills")}>TechSkills</a></li>
-                            <li className="nav-item"><a className="nav-link custom-link" href="#experience" onClick={(e) => handleScrollToSection(e, "experience")}>Experience</a></li>
-                            <li className="nav-item"><a className="nav-link custom-link" href="#works" onClick={(e) => handleScrollToSection(e, "works")}>Projects</a></li>
-                            <li className="nav-item"><a className="nav-link custom-link" href="#contact" onClick={(e) => handleScrollToSection(e, "contact")}>Contact</a></li>
+                            <li className="nav-item"><Link className="nav-link custom-link" to="home" smooth={true} duration={500}>Home</Link></li>
+                            <li className="nav-item"><Link className="nav-link custom-link" to="about" smooth={true} duration={500}>About me</Link></li>
+                            <li className="nav-item"><Link className="nav-link custom-link" to="education" smooth={true} duration={500}>My Education</Link></li>
+                            <li className="nav-item"><Link className="nav-link custom-link" to="techskills" smooth={true} duration={500}>TechSkills</Link></li>
+                            <li className="nav-item"><Link className="nav-link custom-link" to="experience" smooth={true} duration={500}>Experience</Link></li>
+                            <li className="nav-item"><Link className="nav-link custom-link" to="works" smooth={true} duration={500}>Projects</Link></li>
+                            <li className="nav-item"><Link className="nav-link custom-link" to="contact" smooth={true} duration={500}>Contact</Link></li>
                         </ul>
                     </div>
                 </div>
             </nav>
 
-            {/* Navbar fijo que aparece con scroll */}
+            {/* Navbar fijo con scroll */}
             <nav className={`navbar navbar-expand-lg navbar-dark fixed-navbar ${scrolled ? 'show-navbar' : ''}`}>
                 <div className="container">
-                    <a className="navbar-brand custom-title" href="#home" onClick={(e) => handleScrollToSection(e, "home")}>Portfolio</a>
-                    <button
-                        className="navbar-toggler"
-                        type="button"
+                    <Link className="navbar-brand custom-title" to="home" smooth={true} duration={500}>Portfolio</Link>
+                    <button 
+                        className="navbar-toggler" 
+                        type="button" 
                         onClick={() => setExpanded(!expanded)}
-                        aria-controls="navbarNav"
-                        aria-expanded={expanded}
+                        aria-controls="navbarNavFixed" 
+                        aria-expanded={expanded} 
                         aria-label="Toggle navigation"
                     >
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div className={`collapse navbar-collapse ${expanded ? 'show' : ''}`} id="navbarNav">
+                    <div className={`collapse navbar-collapse ${expanded ? 'show' : ''}`} id="navbarNavFixed">
                         <ul className="navbar-nav ms-auto">
-                            <li className="nav-item"><a className="nav-link custom-link" href="#home" onClick={(e) => handleScrollToSection(e, "home")}>Home</a></li>
-                            <li className="nav-item"><a className="nav-link custom-link" href="#about" onClick={(e) => handleScrollToSection(e, "about")}>About me</a></li>
-                            <li className="nav-item"><a className="nav-link custom-link" href="#education" onClick={(e) => handleScrollToSection(e, "education")}>My Education</a></li>
-                            <li className="nav-item"><a className="nav-link custom-link" href="#techskills" onClick={(e) => handleScrollToSection(e, "techskills")}>TechSkills</a></li>
-                            <li className="nav-item"><a className="nav-link custom-link" href="#experience" onClick={(e) => handleScrollToSection(e, "experience")}>Experience</a></li>
-                            <li className="nav-item"><a className="nav-link custom-link" href="#works" onClick={(e) => handleScrollToSection(e, "works")}>Projects</a></li>
-                            <li className="nav-item"><a className="nav-link custom-link" href="#contact" onClick={(e) => handleScrollToSection(e, "contact")}>Contact</a></li>
+                            <li className="nav-item"><Link className="nav-link custom-link" to="home" smooth={true} duration={500}>Home</Link></li>
+                            <li className="nav-item"><Link className="nav-link custom-link" to="about" smooth={true} duration={500}>About me</Link></li>
+                            <li className="nav-item"><Link className="nav-link custom-link" to="education" smooth={true} duration={500}>My Education</Link></li>
+                            <li className="nav-item"><Link className="nav-link custom-link" to="techskills" smooth={true} duration={500}>TechSkills</Link></li>
+                            <li className="nav-item"><Link className="nav-link custom-link" to="experience" smooth={true} duration={500}>Experience</Link></li>
+                            <li className="nav-item"><Link className="nav-link custom-link" to="works" smooth={true} duration={500}>Projects</Link></li>
+                            <li className="nav-item"><Link className="nav-link custom-link" to="contact" smooth={true} duration={500}>Contact</Link></li>
                         </ul>
                     </div>
                 </div>

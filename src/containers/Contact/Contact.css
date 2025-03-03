@@ -1,37 +1,34 @@
 .contact-container {
     display: flex;
     align-items: center;
-    justify-content: left;
+    justify-content: center; /* Centrado para mejor visualización en móviles */
     min-height: 100vh;
-    padding: 2rem; /* Aumentado el padding para más espacio */
-    
-}
-
-.contact-card {
-    max-width: 36rem; /* Aumentado el ancho máximo para más espacio */
-    width: 100%;
-    padding: 2.5rem; /* Aumentado el padding interno */
-    
-    
-}
-
-.contact-title {
-    font-size: 7rem; /* Aumenta el tamaño de la fuente */
+    padding: 2rem;
+  }
+  
+  .contact-card {
+    max-width: 36rem;
+    width: 90%; /* Ajustado para móviles */
+    padding: 2.5rem;
+  }
+  
+  .contact-title {
+    font-size: 4rem; /* Reducido para móviles */
     font-weight: 600;
     color: #333333;
-    margin-bottom: rem; /* Aumenta el margen inferior para más separación */
+    margin-bottom: 2rem; /* Ajustado para móviles */
     text-align: center;
-    font-family:Arial, Helvetica, sans-serif;
-}
-
-.contact-form {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem; /* Aumentado el espacio entre elementos */
-}
-
-.contact-input,
-.contact-textarea {
+    gap: 1.5rem;
+  }
+  
+  .contact-input,
+  .contact-textarea {
     width: 100%;
     padding: 1rem;
     outline: none;
@@ -39,28 +36,51 @@
     font-size: 1rem;
     color: #4a5568;
     background-color: transparent;
-    border: none; /* Elimina los bordes */
-}
-
-.contact-input:focus,
-.contact-textarea:focus {
+    border: 1px solid #a0aec0; /* Añadido borde para mejor visibilidad */
+    border-radius: 0.5rem; /* Añadido borde redondeado */
+  }
+  
+  .contact-input:focus,
+  .contact-textarea:focus {
     border-color: #a0aec0;
     box-shadow: 0 0 0 2px rgba(160, 174, 192, 0.3);
-}
-
-
-.contact-button {
+  }
+  
+  .contact-button {
     width: 100%;
-    background-color: #333333; /* Color de fondo más oscuro */
+    background-color: #333333;
     color: #ffffff;
-    padding: 1rem; /* Aumentado el padding */
-    border-radius: 0.75rem; /* Bordes más redondeados */
-    font-weight: 600; /* Peso de fuente ligeramente menor */
+    padding: 1rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s; /* Transición más suave */
-    font-size: 1.1rem; /* Tamaño de fuente más grande */
-}
-
-.contact-button:hover {
-    background-color: #555555; /* Color al pasar el ratón */
-}
+    transition: background-color 0.3s;
+    font-size: 1.1rem;
+  }
+  
+  .contact-button:hover {
+    background-color: #555555;
+  }
+  
+  /* Media Queries para pantallas más pequeñas (móviles) */
+  @media (max-width: 768px) {
+    .contact-title {
+      font-size: 3rem; /* Reducido aún más para móviles pequeños */
+      margin-bottom: 1.5rem; /* Ajustado el margen */
+    }
+  
+    .contact-card {
+      padding: 1.5rem; /* Reducido el padding */
+    }
+  }
+  
+  /* Media Queries para pantallas aún más pequeñas (teléfonos) */
+  @media (max-width: 480px) {
+    .contact-title {
+      font-size: 2.5rem; /* Reducido aún más para teléfonos */
+    }
+  
+    .contact-card {
+      width: 95%; /* Ajustado el ancho */
+    }
+  }

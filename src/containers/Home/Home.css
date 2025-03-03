@@ -3,12 +3,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-
 :root {
   --font-antonio: 'Antonio', sans-serif;
   --font-montserrat: 'Montserrat', sans-serif;
-  --font-courier:"Courier, sans-serif"
+  --font-courier: "Courier, sans-serif";
 }
+
 /* Contenedor principal */
 .hero-container {
   display: flex;
@@ -16,23 +16,15 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  color: black; 
-  padding-bottom: 2rem;
+  color: black;
+  padding: 2rem; /* Ajustado el padding para móviles */
   text-align: center;
-  
 }
-
-/* Opcional: Ajustar la opacidad y los puntos de parada */
-/*
-.hero-container {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 20%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
-}
-*/
 
 /* Contenido principal (texto e imagen) */
 .hero-main-content {
   display: flex;
-  flex-direction: column; /* Columna en móviles por defecto */
+  flex-direction: column;
   align-items: center;
   width: 100%;
 }
@@ -42,29 +34,27 @@
   max-width: 900px;
   width: 100%;
   display: flex;
-  flex-direction: column; /* Columna por defecto */
+  flex-direction: column;
   align-items: center;
 }
 
 .hero-content-card {
-  width: 100%; /* Asegura que ocupe todo el ancho disponible */
-  max-width: 800px; /* Ajusta este valor según tus necesidades */
+  width: 90%; /* Ajustado para móviles */
+  max-width: 800px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  margin: 0 auto;
 }
-
 
 /* Títulos */
 .hero-title {
   width: 100%;
-  font-size: 2.5rem;
+  font-size: 2rem; /* Reducido el tamaño para móviles */
   font-weight: bold;
   margin-bottom: 0.5rem;
   font-family: 'Montserrat', sans-serif;
   color: white;
-  
 }
 
 .highlight {
@@ -72,17 +62,17 @@
 }
 
 .role {
-  font-size: 4rem;
+  font-size: 3rem; /* Reducido el tamaño para móviles */
   text-transform: uppercase;
   letter-spacing: 2px;
   color: black;
-  margin-bottom: 50px;
+  margin-bottom: 30px; /* Reducido el margen para móviles */
 }
 
 /* Descripción */
 .hero-description {
   font-size: 1rem;
-  margin-top: 100px;
+  margin-top: 50px; /* Reducido el margen para móviles */
   color: black;
   max-width: 700px;
   font-family: 'Courier New', Courier, monospace;
@@ -127,13 +117,11 @@
   color: white;
 }
 
-
-
 /* Estadísticas debajo de la foto */
 .hero-stats {
   width: 100%;
   text-align: center;
-  margin-top: 8rem;
+  margin-top: 4rem; /* Reducido el margen para móviles */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -146,34 +134,73 @@
 }
 
 .stat span {
-  font-size: 2rem;
+  font-size: 1.8rem; /* Reducido el tamaño para móviles */
   font-weight: bold;
   color: black;
 }
 
 /* Responsive */
 @media (min-width: 900px) {
+  .hero-container {
+    padding: 2rem; /* Vuelve a poner el padding para pantallas amplias */
+  }
+
   .hero-main-content {
-    flex-direction: row; /* Fila en pantallas grandes */
+    flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start; /* Alinea los elementos al inicio en fila */
+    align-items: flex-start;
   }
 
   .hero-content {
-    align-items: flex-start; /* Alinea el contenido de texto a la izquierda */
+    align-items: flex-start;
     text-align: left;
-    flex-direction: row; /* Asegura que el contenido de texto esté en columna */
-    
+    flex-direction: row;
   }
- 
 
+  .hero-title {
+    font-size: 2.5rem; /* Vuelve al tamaño original para pantallas amplias */
+  }
+
+  .role {
+    font-size: 4rem; /* Vuelve al tamaño original para pantallas amplias */
+    margin-bottom: 50px; /* Vuelve al margen original para pantallas amplias */
+  }
+
+  .hero-description {
+    margin-top: 100px; /* Vuelve al margen original para pantallas amplias */
+  }
 
   .hero-stats {
     flex-direction: row;
     justify-content: space-evenly;
+    margin-top: 8rem; /* Vuelve al margen original para pantallas amplias */
   }
 
   .stat span {
-    font-size: 3rem;
+    font-size: 3rem; /* Vuelve al tamaño original para pantallas amplias */
+  }
+
+  .hero-content-card {
+    width: 100%; /* Vuelve a ocupar el ancho total para pantallas amplias */
+  }
+}
+
+/* Media Queries para pantallas más pequeñas (móviles) */
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 1.8rem; /* Reduce aún más el tamaño del título en móviles */
+  }
+
+  .role {
+    font-size: 2.5rem; /* Reduce aún más el tamaño del rol en móviles */
+  }
+
+  .hero-description {
+    font-size: 0.9rem; /* Reduce el tamaño de la descripción en móviles */
+    margin-top: 30px; /* Reduce el margen de la descripción */
+  }
+
+  .stat span {
+    font-size: 1.5rem; /* Reduce aún más el tamaño de los números en móviles */
   }
 }

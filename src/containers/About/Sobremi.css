@@ -1,20 +1,18 @@
 .header-tittle {
-  
   padding: 10px 0;
   background-color: black;
   overflow: hidden;
   position: relative;
-  
 }
 
 .titulo-principal {
-  font-size: 3.5rem;
+  font-size: 2.5rem; /* Reducido para móviles */
   margin: 0;
   color: white;
   font-family: "Helvetica Neue LT W05 55 Roman", Arial, Helvetica, sans-serif;
-  display: inline-block; /* Permite que el texto se ajuste al contenido */
-  text-align: left; /* Alinea el contenido a la derecha */
-  padding-left: 20px;
+  display: inline-block;
+  text-align: left;
+  padding-left: 10px; /* Reducido para móviles */
 }
 
 /* Líneas en los bordes */
@@ -23,7 +21,7 @@
   content: "";
   position: absolute;
   width: 100%;
-  height: 2px;
+  height: 1px; /* Reducido el grosor para móviles */
   background-color: white;
 }
 
@@ -33,6 +31,39 @@
 }
 
 .header-tittle::after {
-  top:0;
+  top: 0;
   left: 0;
+}
+
+/* Media Queries para pantallas más pequeñas (móviles) */
+@media (max-width: 768px) {
+  .titulo-principal {
+    font-size: 2rem; /* Reducido aún más para móviles pequeños */
+    padding-left: 5px; /* Reducido aún más el padding */
+  }
+
+  .header-tittle::before,
+  .header-tittle::after {
+    height: 1px; /* Asegura que el grosor sea consistente */
+  }
+}
+
+/* Media Queries para pantallas aún más pequeñas (teléfonos) */
+@media (max-width: 480px) {
+  .titulo-principal {
+    font-size: 1.8rem; /* Reducido aún más para teléfonos */
+  }
+}
+
+/* Media Queries para pantallas grandes */
+@media (min-width: 1200px) {
+  .titulo-principal {
+    font-size: 3.5rem; /* Vuelve al tamaño original para pantallas grandes */
+    padding-left: 20px; /* Vuelve al padding original para pantallas grandes */
+  }
+
+  .header-tittle::before,
+  .header-tittle::after {
+    height: 2px; /* Vuelve el grosor original para pantallas grandes */
+  }
 }

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-
 import "./Home.css";
-
 
 const FallingLetters = ({ text }) => {
   const letters = text.split("");
@@ -11,19 +9,16 @@ const FallingLetters = ({ text }) => {
     hidden: { opacity: 0 },
     visible: (i = 1) => ({
       opacity: 1,
-      transition: { staggerChildren: 0.03, delayChildren: 0.2 },
+      transition: { staggerChildren: 0.015, delayChildren: 0.1 }, // Animación más rápida
     }),
   };
 
   const child = {
-    hidden: { opacity: 0, y: -20 },
+    hidden: { opacity: 0, y: -15 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
+      transition: { duration: 0.3, ease: "easeOut" }, // Menos duración
     },
   };
 
@@ -49,8 +44,9 @@ const FallingLetters = ({ text }) => {
 
 export default function Home() {
   const fullDescription =
-    "As a Front-end Developer, my passion lies in crafting engaging and functional web experiences that delight users. I am driven by the constant evolution of the digital world, and I strive to stay at the forefront of the latest technologies and trends.";
+    "As a Front-end Developer, my passion lies in crafting engaging and functional web experiences that delight users.";
   const [displayedDescription, setDisplayedDescription] = useState("");
+  const [textCompleted, setTextCompleted] = useState(false); // Nuevo estado
 
   useEffect(() => {
     let index = 0;
@@ -60,10 +56,11 @@ export default function Home() {
         index++;
       } else {
         clearInterval(typingInterval);
+        setTextCompleted(true); // Cuando termina, cambia a true
       }
-    }, 30);
+    }, 20); // Texto aparece más rápido
     return () => clearInterval(typingInterval);
-  }, [fullDescription]);
+  }, []);
 
   const stats = [
     { value: 2, label: "Years of experience" },
@@ -76,26 +73,29 @@ export default function Home() {
     const [count, setCount] = useState(0);
 
     useEffect(() => {
+      if (!textCompleted) return; // Solo empieza si el texto ya se completó
+
+      let current = 0;
+      const step = Math.max(1, Math.floor(value / 50)); // Asegura que los valores grandes suban rápido
       const interval = setInterval(() => {
-        setCount((prevCount) => {
-          if (prevCount < value) {
-            return prevCount + 1;
-          } else {
-            clearInterval(interval);
-            return value;
-          }
-        });
-      }, 50);
+        current += step;
+        if (current >= value) {
+          setCount(value);
+          clearInterval(interval);
+        } else {
+          setCount(current);
+        }
+      }, 30);
 
       return () => clearInterval(interval);
-    }, [value]);
+    }, [value, textCompleted]);
 
     return (
       <div className="stat">
         <motion.span
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
         >
           {count}
         </motion.span>
@@ -108,39 +108,41 @@ export default function Home() {
     <div className="hero-container">
       <div className="hero-content">
         <div className="hero-content-card">
-          
-        <motion.h2
-          className="role"
-          initial={{ opacity: 0, y: -10 }}
+          <motion.h2
+            className="role"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            Software Developer
+          </motion.h2>
+
+          <FallingLetters text="Hello," />
+          <FallingLetters text="I'm Daniel Ríos" />
+
+          <motion.p
+            className="hero-description"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.1, duration: 0.3 }}
+          >
+            {displayedDescription}
+          </motion.p>
+        </div>
+      </div>
+
+      {textCompleted && ( // Muestra los contadores solo cuando el texto esté completo
+        <motion.div
+          className="hero-stats"
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Software Developer
-        </motion.h2>
-
-        <FallingLetters text="Hello," />
-        <FallingLetters text="I'm Daniel Ríos" />
-
-        <motion.p
-          className="hero-description"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-        >
-          {displayedDescription}
-        </motion.p>
-
-      </div>
-      
-
-        
-      </div>
-
-      <div className="hero-stats">
-        {stats.map((stat, index) => (
-          <Stat key={index} value={stat.value} label={stat.label} />
-        ))}
-      </div>
+          {stats.map((stat, index) => (
+            <Stat key={index} value={stat.value} label={stat.label} />
+          ))}
+        </motion.div>
+      )}
     </div>
   );
 }

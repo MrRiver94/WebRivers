@@ -5,6 +5,7 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  max-width: 80%; /* Añadido para que el logo no sea demasiado grande en pantallas pequeñas */
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -22,6 +23,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 20px; /* Añadido padding para mejor espaciado en móviles */
 }
 
 .App-link {
@@ -34,5 +36,28 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Media Queries para pantallas más pequeñas (móviles) */
+@media (max-width: 768px) {
+  .App-logo {
+    height: 30vmin; /* Reduce el tamaño del logo en móviles */
+  }
+
+  .App-header {
+    font-size: calc(8px + 2vmin); /* Reduce el tamaño de la fuente en móviles */
+    padding: 10px; /* Reduce el padding en móviles */
+  }
+}
+
+/* Media Queries para pantallas aún más pequeñas (teléfonos) */
+@media (max-width: 480px) {
+  .App-logo {
+    height: 25vmin; /* Reduce aún más el tamaño del logo en teléfonos */
+  }
+
+  .App-header {
+    font-size: calc(6px + 2vmin); /* Reduce aún más el tamaño de la fuente en teléfonos */
   }
 }
