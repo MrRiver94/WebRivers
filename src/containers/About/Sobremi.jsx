@@ -6,6 +6,7 @@ import ClimbingImg from '../../assets/img/Climbing.jpg';
 import SwimmingImg from '../../assets/img/Swimming.jpg';
 import ProgrammingImg from '../../assets/img/Programing.jpg';
 import ConcertImg from '../../assets/img/Concert.jpg';
+import TravelImg from "../../assets/img/Travel.jpg"
 
 import './Sobremi.css';
 
@@ -15,6 +16,7 @@ const hobbies = [
   { id: 3, titulo: "Swimming", imagen: SwimmingImg, alt: "Pool", descripcion: "07:00." },
   { id: 4, titulo: "Programming", imagen: ProgrammingImg, alt: "Programming", descripcion: "02:00." },
   { id: 5, titulo: "Concert & Music", imagen: ConcertImg, alt: "Concert", descripcion: "00:00" },
+  { id: 6, titulo: "Travel", imagen: TravelImg, alt: "Travel", descripcion: "00:58" },
 ];
 
 function Sobremi() {
